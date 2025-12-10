@@ -29,9 +29,12 @@ ROM.h with RST vector hardwired to start at $0200 upon power-up.
 ```
 
 
+<img src="_assets/images/6502 Memory Cycle.png">
+
+
 Monitoring the CLK (CH1) and SYNC (CH2) signals while executing JMP program.
 
-<img src="_assets/images/Monitor_CLK_SYNC.bmp">
+<img src="_assets/images/Monitor CLK and SYNC.bmp">
 
 ---
 
