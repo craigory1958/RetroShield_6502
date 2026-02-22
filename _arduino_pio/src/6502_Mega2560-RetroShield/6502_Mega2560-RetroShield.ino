@@ -189,7 +189,7 @@ void uP_tick() {
 
   pio_setPin(uP_CLK0); // Drive CLK high
 
-  RST = pio_readPin(uP_RST); // Read the R/W pin
+  RST = pio_readPin(uP_RST); // Read the RST pin
   RW = pio_readPin(uP_RW);   // Read the R/W pin
   ADDR = uP_ADDR();          // Read the ADDR bus
   IR = 0x00;
