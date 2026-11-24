@@ -12,7 +12,7 @@
 //    1.0.1   Final code refactor - Craig Gregory
 //    1.2.0   Add silent mode in uP_tick() - Craig Gregory
 //    1.2.1   Simplify memory emulation -  Craig Gregory
-//    1.3.0   Monve SYNC input to D@ - Craig Gregory
+//    1.3.0   Move SYNC input to D2 - Craig Gregory
 //
 
 

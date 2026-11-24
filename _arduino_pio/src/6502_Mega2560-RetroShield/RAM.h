@@ -1,5 +1,5 @@
 
-//                   LOC   CODE         LABEL         INSTRUCTION
+                  // LOC   CODE         LABEL         INSTRUCTION
 
 0x4C, 0x00, 0x02, // 0200  4C 00 02     HERE          JMP HERE
 
