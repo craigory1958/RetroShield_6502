@@ -18,7 +18,7 @@ This is the demo sketch package with the Arduino libraries.  It simple tests the
 
 ### 6502_Mega2560-RetroShield
 
-`6502_Mega2560-RetroShield` is a simple emulation for an attached RetroShield 6502.  There are 4 `C` header files to configure the 4 relevant memory segments of a 6502 at startup:
+`6502_Mega2560-RetroShield` is a simple emulation for the attached RetroShield 6502.  There are 4 `C` header files to configure the 4 relevant memory segments of a 6502 at startup:
 
 | Segment | Start | End | File |
 | :-: | :-: | :-: | :-- |
@@ -49,9 +49,21 @@ RST vectors are wired to start execution to 0x0200 at power-up.
 *ROM.h with RST vectors used upon power-up.*
 
 
+Some interesting facts from the emulation (taken from the oscilloscope screen capture below):
+
+* the W65C02 is operating at 272KHz
+* the duty cycle of CLK0 is 61% (not symmetrical)
+* the SYNC signal appears tied to the falling edge of CLK0
+* the number of clock pulses per SYNC matches the documented number of cycles of the JMP instruction. 
+
+<br/>
+
 <img src="_assets/images/Monitor CLK and SYNC.bmp">
 
 *Monitoring the CLK0 (CH1) and SYNC (CH2) signals while executing test program.*
+
+
+#### Theory of Operation
 
 <img src="_assets/images/W65C02 Clock Cycle.png">
 
