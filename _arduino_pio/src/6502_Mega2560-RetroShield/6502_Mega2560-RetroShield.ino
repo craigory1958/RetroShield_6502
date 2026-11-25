@@ -3,7 +3,7 @@
 //  6502_Mega2650-RetroSheid.ino
 //
 //  This is a minumalist emulation of everything needed to support a 6502 CPU.  An 
-//  Arduino Mega 2650 emulates the hardware, and a 6502 is mounted on a 
+//  Arduino Mega 2650 emulates the hardware, and a 65W65C0202 is mounted on a 
 //  RetroSheild (www.8bitforce.com) connected to a header on the Arduino Mega.
 //
 //  version:
@@ -11,7 +11,7 @@
 //    1.0.0   Code debugged - Erturk Kocalar (8-Bit Force)
 //    1.0.1   Final code refactor - Craig Gregory
 //    1.2.0   Add silent mode in uP_tick() - Craig Gregory
-//    1.2.1   Simplify memory emulation -  Craig Gregory
+//    1.2.1   Simplify memory decoding emulation -  Craig Gregory
 //    1.3.0   Move SYNC input to D2 - Craig Gregory
 //
 
@@ -257,6 +257,7 @@ byte readMem(unsigned long addr) {
   if (addr < 0xF000) return RAM[addr];
   else return ROM[addr - ROMOffset];
 }
+
 
 inline __attribute__((always_inline))
 void writeMem(word addr, byte data) {

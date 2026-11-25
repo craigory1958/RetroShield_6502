@@ -6,19 +6,19 @@
 
 ---
 
-[*8-Bit Force*](https://8bitforce.com/) produces carrier boards for various 8-bit microprocessors.  The microprocessor of choice mounts on the corresponding RetroShield and the RetroShield plugs into a bank of GPIO pins on the Arduino Mega 2560 board (or a Teensy board.)  The Arduino emulates all memory, I/O, and control signals needed by the MPU/CPU. For the 6502, [*8-Bit Force*](https://8bitforce.com/) also provides sketches to emulation an Apple I, Commodore 64, and KIM 1 and uses a *LCD Display/Keypad Shield* to interact with the emulations. 
+[*8-Bit Force*](https://8bitforce.com/) produces carrier boards for various 8-bit microprocessors.  The microprocessor of choice mounts on the corresponding RetroShield and the RetroShield plugs into a bank of GPIO pins on an Arduino Mega 2560 board (or a Teensy board.)  The Arduino emulates all memory, I/O, and control signals needed by the MPU/CPU. For the 6502, [*8-Bit Force*](https://8bitforce.com/) also provides sketches to emulation an Apple I, Commodore 64, and KIM 1 and uses a *LCD Display/Keypad Shield* to interact with the emulations. 
 
-The utilities here do not depend on an LCD display.  Instead it uses the built in LED of the Mega2560, and an oscilloscope to validate proper operation.
+The utilities here do not depend on an LCD display.  Instead they use the built in LED of the Mega2560, and an oscilloscope to validate proper operation.
 
 
 ### Mega2560_Blink
 
-This is the demo sketch package with the Arduino libraries.  It simple tests the development environment, and basic operation of the Mega2560.  It blinks the built in LED.
+This is the demo sketch packaged with the Arduino IDE.  It simple tests the development environment, and basic operation of the Mega2560.  It blinks the built in LED.
 
 
 ### 6502_Mega2560-RetroShield
 
-`6502_Mega2560-RetroShield` is a simple emulation for the attached RetroShield 6502.  There are 4 `C` header files to configure the 4 relevant memory segments of a 6502 at startup:
+`6502_Mega2560-RetroShield` is a simple emulation for an attached RetroShield 6502.  There are 4 `C` header files to configure the 4 relevant memory segments of a 6502:
 
 | Segment | Start | End | File |
 | :-: | :-: | :-: | :-- |
@@ -27,8 +27,8 @@ This is the demo sketch package with the Arduino libraries.  It simple tests the
 | RAM | 0x0200 | 0x02FF | RAM.h |
 | ROM | 0xFFF0 | 0xFFFF | ROM.h |
 
-Testing is accomplished by a simple loop program consiting of a single JMP instruction.
 
+Testing is accomplished by executing a simple loop program consiting of a single JMP instruction and monitroring the CLK0 and SYNC signals of the 6502 under test.
 
 ```
                   // LOC   CODE         LABEL         INSTRUCTION
@@ -38,8 +38,7 @@ Testing is accomplished by a simple loop program consiting of a single JMP instr
 *RAM.h with simple JMP loop.*
 
 
-RST vectors are wired to start execution to 0x0200 at power-up.  
-
+RST vector wired to start execution to 0x0200 at power-up.  
 
 ```
 0x00, 0x00,    // NMI vector
@@ -49,7 +48,7 @@ RST vectors are wired to start execution to 0x0200 at power-up.
 *ROM.h with RST vectors used upon power-up.*
 
 
-Some interesting facts from the emulation (taken from the oscilloscope screen capture below):
+Notes about the emulation (taken from the oscilloscope screen capture below):
 
 * the W65C02 is operating at 272KHz
 * the duty cycle of CLK0 is 61% (not symmetrical)
