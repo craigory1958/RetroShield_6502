@@ -2,13 +2,15 @@
 
 # RetroShield 6502
 
-#### Utilities for validating the RetroShield 6502 by [*8-Bit Force*](https://8bitforce.com/)
+#### Utilities the RetroShield 6502 by [*8-Bit Force*](https://8bitforce.com/)
 
 ---
 
 [*8-Bit Force*](https://8bitforce.com/) produces carrier boards for various 8-bit microprocessors.  The microprocessor of choice mounts on the corresponding RetroShield and the RetroShield plugs into a bank of GPIO pins on an Arduino Mega 2560 board (or a Teensy board.)  The Arduino emulates all memory, I/O, and control signals needed by the MPU/CPU. For the 6502, [*8-Bit Force*](https://8bitforce.com/) also provides sketches to emulation an Apple I, Commodore 64, and KIM 1 and uses a *LCD Display/Keypad Shield* to interact with the emulations. 
 
 The utilities here do not depend on an LCD display.  Instead they use the built in LED of the Mega2560, and an oscilloscope to validate proper operation.
+
+Ultimatly this project is to test software and hardare ideas for a multi-tasking operating system running on virtual memory hardware.
 
 
 ### Mega2560_Blink
@@ -18,7 +20,7 @@ This is the demo sketch packaged with the Arduino IDE.  It simple tests the deve
 
 ### 6502_Mega2560-RetroShield
 
-`6502_Mega2560-RetroShield` is a simple emulation for an attached RetroShield 6502.  There are 4 `C` header files to configure the 4 relevant memory segments of a 6502:
+`6502_Mega2560-RetroShield` is a simple emulation for an attached RetroShield 6502.  There are 4 `C` header files to configure 4 relevant memory segments of the 6502:
 
 | Segment | Start | End | File |
 | :-: | :-: | :-: | :-- |
@@ -45,7 +47,7 @@ RST vector wired to start execution to 0x0200 at power-up.
 0x00, 0x02,    // RST vector
 0x00, 0x00,    // IRQ vector
 ```
-*ROM.h with RST vectors used upon power-up.*
+*ROM.h with vectors used upon power-up.*
 
 
 Notes about the emulation (taken from the oscilloscope screen capture below):
@@ -80,3 +82,21 @@ The `RetroShield Carrier` securely holds an Arduino Mega 2560, with a RetroShiel
 <img src="_assets/images/RetroShield Carrier.png">
 <br/>
 <img src="_assets/images/RetroShield 6502.jpg">
+
+
+---
+
+# FNIRSI 2C53P
+
+The FNIRSI 2C53P is used to monitor and validate RetroShield 6502 experiments.
+
+<img src="_assets/images/FNIRSI 2C43P.png">
+
+<br/>
+
+Key Specifications
+
+* Oscilloscope. Features 2 channels with a 50MHz analog bandwidth, 250MSa/s real-time sampling rate, 8-bit vertical resolution, and ±400V maximum measurement voltage
+* Multimeter. Offers a 4.5-digit (19,999-count) True RMS meter supporting AC/DC voltage, AC/DC current, resistance, capacitance, diode, continuity, and temperature measurements
+* DDS Signal Generator. Outputs 12 different waveforms (including sine, square, and sawtooth) up to 10MHz for sine waves and 5MHz for other waveforms, with adjustable amplitude (0.1V–3.0V) and duty cycle
+* Display & Battery. Equipped with a 4.3-inch tempered glass IPS touchscreen (480×272 resolution) and a built-in 4,000mAh lithium battery charged via USB-C.
